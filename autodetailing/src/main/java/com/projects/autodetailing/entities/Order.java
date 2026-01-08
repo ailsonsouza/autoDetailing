@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.projects.autodetailing.emuns.OrderStatus;
 import com.projects.autodetailing.emuns.PaymentStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,8 +41,7 @@ public class Order implements Serializable{
 	@JoinColumn(name = "client_id")
 	private Client client;
 	
-	
-	@OneToMany(mappedBy = "id.order")
+	@OneToMany(mappedBy = "id.order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<OrderService> listServices = new HashSet<>();
 	
 	public Order() {

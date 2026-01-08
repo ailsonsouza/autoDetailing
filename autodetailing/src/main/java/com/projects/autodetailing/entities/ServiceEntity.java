@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="tb_service")
-public class Service implements Serializable{
+public class ServiceEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -21,10 +21,10 @@ public class Service implements Serializable{
 	private String nameService;
 	private Double price;
 	
-	public Service() {
+	public ServiceEntity() {
 	}
 
-	public Service(Long id, String nameService, Double price) {
+	public ServiceEntity(Long id, String nameService, Double price) {
 		super();
 		this.id = id;
 		this.nameService = nameService;
@@ -68,7 +68,7 @@ public class Service implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Service other = (Service) obj;
+		ServiceEntity other = (ServiceEntity) obj;
 		return Objects.equals(id, other.id);
 	}
 	

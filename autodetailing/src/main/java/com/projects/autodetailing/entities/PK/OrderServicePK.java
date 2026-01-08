@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import com.projects.autodetailing.entities.Order;
-import com.projects.autodetailing.entities.Service;
+import com.projects.autodetailing.entities.ServiceEntity;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
@@ -21,7 +21,7 @@ public class OrderServicePK  implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "service_id")
-	private Service service;
+	private ServiceEntity service;
 	
 	public Order getOrder() {
 		return order;
@@ -31,11 +31,11 @@ public class OrderServicePK  implements Serializable{
 		this.order = order;
 	}
 	
-	public Service getService() {
+	public ServiceEntity getService() {
 		return service;
 	}
 	
-	public void setService(Service service) {
+	public void setService(ServiceEntity service) {
 		this.service = service;
 	}
 	

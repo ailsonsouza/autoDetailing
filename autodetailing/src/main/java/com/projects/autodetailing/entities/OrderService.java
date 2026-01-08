@@ -24,13 +24,25 @@ public class OrderService implements Serializable{
 	public OrderService() {
 	}
 
-	public OrderService(Order order, Service service, Integer quantity, Double price) {
+	public OrderService(Order order, ServiceEntity service, Integer quantity, Double price) {
 		id.setOrder(order);
 		id.setService(service);
 		this.quantity = quantity;
 		this.price = price;
 	}
 	
+	
+	
+	@JsonIgnore
+	public OrderServicePK getId() {
+		return id;
+	}
+	
+
+	public void setId(OrderServicePK id) {
+		this.id = id;
+	}
+
 	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
@@ -40,11 +52,11 @@ public class OrderService implements Serializable{
 		id.setOrder(order);
 	}
 	
-	public Service getServie() {
+	public ServiceEntity getServie() {
 		return id.getService();
 	}
 	
-	public void setService(Service service) {
+	public void setService(ServiceEntity service) {
 		id.setService(service);
 	}
 

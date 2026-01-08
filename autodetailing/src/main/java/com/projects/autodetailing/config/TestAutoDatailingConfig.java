@@ -15,7 +15,7 @@ import com.projects.autodetailing.entities.Client;
 import com.projects.autodetailing.entities.Employee;
 import com.projects.autodetailing.entities.Order;
 import com.projects.autodetailing.entities.OrderService;
-import com.projects.autodetailing.entities.Service;
+import com.projects.autodetailing.entities.ServiceEntity;
 import com.projects.autodetailing.repositories.ClientRepository;
 import com.projects.autodetailing.repositories.EmployeeRepository;
 import com.projects.autodetailing.repositories.OrderRepository;
@@ -54,13 +54,13 @@ public class TestAutoDatailingConfig implements CommandLineRunner{
 		Employee employee2 = new Employee(null, "Roberto", "41 985623569", "tingui curitiba", 8639.63);
 		employeeRepository.saveAll(Arrays.asList(employee1, employee2));
 		
-		Service service1 = new Service(null, "Lavação completa", 70.0);
-		Service service2 = new Service(null, "Lavação incompleta", 70.0);
+		ServiceEntity service1 = new ServiceEntity(null, "Lavação completa", 70.0);
+		ServiceEntity service2 = new ServiceEntity(null, "Lavação incompleta", 70.0);
 		serviceRepository.saveAll(Arrays.asList(service1, service2));
 		
 		Order order1 = new Order(null, Instant.now(), OrderStatus.IN_PROGRESS, PaymentStatus.BOLETO, 0.1, client2);
-		Order order2 = new Order(null, Instant.now(), OrderStatus.IN_PROGRESS, PaymentStatus.BOLETO, 0.1, client1);
-		Order order3 = new Order(null, Instant.now(), OrderStatus.IN_PROGRESS, PaymentStatus.BOLETO, 0.1, client2);
+		Order order2 = new Order(null, Instant.now(), OrderStatus.COMPLETED, PaymentStatus.BOLETO, 0.1, client1);
+		Order order3 = new Order(null, Instant.now(), OrderStatus.IN_PROGRESS, PaymentStatus.CREDIT_CARD, 0.1, client2);
 		Order order4 = new Order(null, Instant.now(), OrderStatus.IN_PROGRESS, PaymentStatus.BOLETO, 0.1, client1);
 		orderRepository.saveAll(Arrays.asList(order1, order2, order3, order4));
 		
